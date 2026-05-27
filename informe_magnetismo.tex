@@ -16,6 +16,7 @@
 \usepackage{mathptmx}
 \usepackage{titlesec}
 \usepackage[hidelinks]{hyperref}
+\usepackage{color}
 
 \geometry{
     paper=letterpaper,
@@ -44,14 +45,7 @@
 
 \captionsetup{font=small, labelfont=bf, justification=centering}
 
-\newcommand{\infig}[3]{%
-  \vspace{3pt}%
-  \begin{center}%
-    \includegraphics[width=#1\linewidth]{#2}%
-    \captionof{figure}{#3}%
-  \end{center}%
-  \vspace{2pt}%
-}
+% Para insertar cada imagen: descomenta la línea \includegraphics y elimina el \vspace correspondiente
 
 \pagestyle{empty}
 
@@ -161,15 +155,33 @@ donde los subíndices $p$ y $s$ indican el devanado primario y secundario respec
 
 Se conectaron un toroide y un solenoide de alambre de cobre a una fuente de corriente directa. Se roció limadura de hierro sobre cada uno y, al encender la fuente y dar pequeños golpes al soporte, las partículas se alinearon con las líneas de campo mostrando claramente su geometría. También había un imán cilíndrico dentro de una cápsula acrílica transparente rellena de limadura de hierro, que permitía ver las líneas en tres dimensiones.
 
-\infig{1.0}{toroide.jpeg}{Toroide con limadura de hierro. Las líneas de campo quedan completamente confinadas dentro del núcleo toroidal, sin flujo en el exterior.\label{fig:toroide}}
+\vspace{3pt}
+\begin{center}
+  % \includegraphics[width=1.0\linewidth]{toroide.jpeg}
+  \vspace{5.5cm}
+  \captionof{figure}{Toroide con limadura de hierro. Las líneas de campo quedan completamente confinadas dentro del núcleo toroidal, sin flujo en el exterior.\label{fig:toroide}}
+\end{center}
+\vspace{2pt}
 
-\infig{1.0}{solenoide.jpeg}{Solenoide con limadura de hierro. Las líneas emergen por un extremo y se cierran por el otro, igual que en un imán de barra.\label{fig:solenoide}}
+\vspace{3pt}
+\begin{center}
+  % \includegraphics[width=1.0\linewidth]{solenoide.jpeg}
+  \vspace{5.5cm}
+  \captionof{figure}{Solenoide con limadura de hierro. Las líneas emergen por un extremo y se cierran por el otro, igual que en un imán de barra.\label{fig:solenoide}}
+\end{center}
+\vspace{2pt}
 
 \subsection*{Mesa 2: Verificación de la ley de Ampere}
 
 Se usó el aparato PASCO Ampere's Law (EM-6720): una plataforma con un aro conductor circular con corriente conocida, y un carro con sensor inalámbrico de campo magnético que se desplaza manualmente. El software PASCO Capstone registra $B_x$ en función de la posición y calcula la integral $\oint \vec{B}\cdot d\vec{l}$ como el área bajo esa curva.
 
-\infig{1.0}{ampere_setup2.jpeg}{Aparato PASCO EM-6720: aro portador de corriente montado verticalmente y carro con sensor magnético sobre la plataforma.\label{fig:ampere_setup}}
+\vspace{3pt}
+\begin{center}
+  % \includegraphics[width=1.0\linewidth]{ampere_setup2.jpeg}
+  \vspace{5.5cm}
+  \captionof{figure}{Aparato PASCO EM-6720: aro portador de corriente montado verticalmente y carro con sensor magnético sobre la plataforma.\label{fig:ampere_setup}}
+\end{center}
+\vspace{2pt}
 
 Con $I \approx 0.815$~A y $\mu_0 NI \approx 5.12$~Gm se hicieron tres recorridos cerrados:
 \begin{itemize}
@@ -187,9 +199,21 @@ Se colgaron tres láminas planas de aluminio de una barra horizontal para que os
     \item \textbf{Lámina tipo peine}: ranuras finas y densas abiertas en el borde inferior, formando ``dientes'' separados en la parte baja pero unidos por un puente sólido en la parte superior.
 \end{enumerate}
 
-\infig{0.88}{foucault_setup.jpeg}{Montaje de corrientes de Foucault: lámina de aluminio oscilando entre los polos de dos imanes permanentes.\label{fig:foucault_setup}}
+\vspace{3pt}
+\begin{center}
+  % \includegraphics[width=0.88\linewidth]{foucault_setup.jpeg}
+  \vspace{5.0cm}
+  \captionof{figure}{Montaje de corrientes de Foucault: lámina de aluminio oscilando entre los polos de dos imanes permanentes.\label{fig:foucault_setup}}
+\end{center}
+\vspace{2pt}
 
-\infig{0.80}{foucault_peine.jpeg}{Lámina tipo peine. Las ranuras están abiertas en el borde inferior (los dientes), pero la parte superior es un puente sólido que conecta todos los dientes.\label{fig:peine}}
+\vspace{3pt}
+\begin{center}
+  % \includegraphics[width=0.80\linewidth]{foucault_peine.jpeg}
+  \vspace{4.5cm}
+  \captionof{figure}{Lámina tipo peine. Las ranuras están abiertas en el borde inferior (los dientes), pero la parte superior es un puente sólido que conecta todos los dientes.\label{fig:peine}}
+\end{center}
+\vspace{2pt}
 
 \subsection*{Mesa 4: Transformador e inducción con imán}
 
@@ -197,7 +221,13 @@ Se usaron bobinas intercambiables Frederiksen (200, 400, 800, 1600 y 3200~espira
 
 Se probaron cuatro combinaciones de bobinas midiendo el voltaje en el secundario. Luego se desconectó el núcleo, se conectó una sola bobina al voltímetro y se pasó un imán (primero delgado, luego grande) a través de ella varias veces, registrando la fem máxima para bobinas de 200, 400 y 3200~espiras.
 
-\infig{1.0}{transformador.jpeg}{Mesa 4: bobinas Frederiksen (200 en azul, 1600 en rojo), núcleo de hierro en U con yugo y multímetro UNI-T.\label{fig:transformador}}
+\vspace{3pt}
+\begin{center}
+  % \includegraphics[width=1.0\linewidth]{transformador.jpeg}
+  \vspace{4.5cm}
+  \captionof{figure}{Mesa 4: bobinas Frederiksen (200 en azul, 1600 en rojo), núcleo de hierro en U con yugo y multímetro UNI-T.\label{fig:transformador}}
+\end{center}
+\vspace{2pt}
 
 % -----------------------------------------------------------
 \section{Resultados}
@@ -228,11 +258,29 @@ Solo un lado   & 0.263 & No \\
 \end{center}
 \vspace{2pt}
 
-\infig{1.0}{ampere_g1.jpeg}{Recorrido 1 (por el centro): pico tipo campana, área $= 5.55$~G·m $\approx\mu_0 NI = 5.12$~Gm. $I=0.815$~A.\label{fig:ampere1}}
+\vspace{3pt}
+\begin{center}
+  % \includegraphics[width=1.0\linewidth]{ampere_g1.jpeg}
+  \vspace{4.5cm}
+  \captionof{figure}{Recorrido 1 (por el centro): pico tipo campana, área $= 5.55$~G·m $\approx\mu_0 NI = 5.12$~Gm. $I=0.815$~A.\label{fig:ampere1}}
+\end{center}
+\vspace{2pt}
 
-\infig{1.0}{ampere_g2.jpeg}{Recorrido 2 (rodea el exterior): regiones positivas y negativas que casi se cancelan; área $= 0.933$~G·m $\approx 0$.\label{fig:ampere2}}
+\vspace{3pt}
+\begin{center}
+  % \includegraphics[width=1.0\linewidth]{ampere_g2.jpeg}
+  \vspace{4.5cm}
+  \captionof{figure}{Recorrido 2 (rodea el exterior): regiones positivas y negativas que casi se cancelan; área $= 0.933$~G·m $\approx 0$.\label{fig:ampere2}}
+\end{center}
+\vspace{2pt}
 
-\infig{1.0}{ampere_g3.jpeg}{Recorrido 3 (solo un lado): área $= 0.263$~G·m $\approx 0$. $I=0.813$~A.\label{fig:ampere3}}
+\vspace{3pt}
+\begin{center}
+  % \includegraphics[width=1.0\linewidth]{ampere_g3.jpeg}
+  \vspace{4.5cm}
+  \captionof{figure}{Recorrido 3 (solo un lado): área $= 0.263$~G·m $\approx 0$. $I=0.813$~A.\label{fig:ampere3}}
+\end{center}
+\vspace{2pt}
 
 \subsection*{Mesa 3 – Corrientes de Foucault}
 
@@ -242,7 +290,13 @@ Al soltar las tres láminas con la misma amplitud inicial:
     \item \textbf{Lámina tipo peine} (señalada con flechas rojas en Fig.~\ref{fig:placas}): se detuvo completamente y de forma muy abrupta, incluso más que las otras dos.
 \end{itemize}
 
-\infig{1.0}{foucault_placas.jpeg}{Las tres láminas del experimento. Las flechas rojas señalan la lámina tipo peine (centro), que presentó el mayor frenado.\label{fig:placas}}
+\vspace{3pt}
+\begin{center}
+  % \includegraphics[width=1.0\linewidth]{foucault_placas.jpeg}
+  \vspace{5.0cm}
+  \captionof{figure}{Las tres láminas del experimento. Las flechas rojas señalan la lámina tipo peine (centro), que presentó el mayor frenado.\label{fig:placas}}
+\end{center}
+\vspace{2pt}
 
 \subsection*{Mesa 4 – Transformador e inducción}
 
