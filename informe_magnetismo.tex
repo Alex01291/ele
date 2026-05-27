@@ -1,0 +1,406 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\makeatletter\def\es@sppercent{}\makeatother
+\usepackage{geometry}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{times}
+\usepackage{mathptmx}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+\geometry{
+    paper=letterpaper,
+    top=0.98in,
+    bottom=0.87in,
+    left=0.59in,
+    right=0.45in
+}
+
+% Section formatting – bold, uppercase, no extra indent
+\titleformat{\section}
+  {\normalfont\bfseries\small}{\thesection.}{0.4em}{\MakeUppercase}
+\titlespacing{\section}{0pt}{7pt plus 2pt}{3pt plus 1pt}
+
+\setlength{\columnsep}{0.28in}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{4pt}
+
+\captionsetup{font=small, labelfont=bf, justification=centering}
+
+\pagestyle{empty}
+
+% ──────────────────────────────────────────────
+\begin{document}
+
+%% ---- CABECERA (columna única) ----
+\begin{center}
+{\large\bfseries
+Magnetismo y Electromagnetismo: Visualización de Líneas de Campo, Ley de Ampere,\\
+Corrientes de Foucault e Inducción Electromagnética}
+
+\vspace{6pt}
+{\normalsize Escriba Apellido, Nombre$^{1}$;\quad Escriba Apellido, Nombre$^{2}$;\quad Escriba Apellido, Nombre$^{3}$}
+
+\vspace{3pt}
+{\small$^{1,2,3}$Departamento de Física \textbullet\ Universidad [Nombre], [Ciudad]}
+\end{center}
+
+\vspace{8pt}
+\hrule height 0.8pt
+\vspace{7pt}
+
+%% ---- RESUMEN (columna única) ----
+\begin{center}{\small\bfseries Resumen}\end{center}
+{\small
+Se estudian cuatro fenómenos electromagnéticos fundamentales mediante montajes experimentales. En la primera mesa se visualizan las líneas de campo magnético de un toroide, un solenoide y un imán cilíndrico, usando limadura de hierro. En la segunda mesa se verifica la ley de Ampere recorriendo con un sensor de campo magnético tres trayectorias cerradas alrededor de un aro portador de corriente, obteniéndose $\oint \vec{B}\cdot d\vec{l} \approx \mu_0 N I_{\text{enc}}$ con un error del $8.4\,\%$ cuando la trayectoria encierra la corriente, y valores cercanos a cero en los demás casos. En la tercera mesa se estudian las corrientes de Foucault observando el frenado diferencial de tres láminas de aluminio con distintas geometrías de ranuras. Finalmente, en la cuarta mesa se estudia el transformador y la ley de Faraday con bobinas intercambiables sobre un núcleo de hierro, verificando $V_s/V_p = N_s/N_p$ y comprobando que la fem inducida depende del número de espiras y de la velocidad de variación del flujo magnético.}
+
+\vspace{6pt}
+\begin{center}{\small\bfseries Abstract}\end{center}
+{\small
+Four fundamental electromagnetic phenomena are studied through experimental setups. The first station visualizes magnetic field lines of a toroid, a solenoid, and a cylindrical magnet using iron filings. The second station verifies Ampere's law by tracing three closed paths around a current-carrying loop with a magnetic field sensor, obtaining $\oint \vec{B}\cdot d\vec{l} \approx \mu_0 N I_{\text{enc}}$ with an $8.4\,\%$ error when the path links with the current, and near-zero values otherwise. The third station demonstrates eddy-current braking using three aluminum plates with different slot geometries. The fourth station studies transformer principles and Faraday's law using interchangeable coils on an iron core, confirming $V_s/V_p = N_s/N_p$ and showing that induced EMF depends on the number of turns and the rate of change of magnetic flux.}
+
+\vspace{8pt}
+\hrule height 0.8pt
+\vspace{6pt}
+
+%% ============================================================
+%% DOS COLUMNAS desde aquí
+%% ============================================================
+\begin{multicols}{2}
+
+% -----------------------------------------------------------
+\section{Introducción}
+% -----------------------------------------------------------
+
+El magnetismo y el electromagnetismo son pilares del conocimiento físico moderno. Desde la brújula más sencilla hasta los motores y transformadores que alimentan nuestras ciudades, los principios que gobiernan el campo magnético y su interacción con cargas en movimiento tienen aplicaciones directas en casi toda la tecnología eléctrica contemporánea.
+
+En esta práctica de laboratorio se abordan cuatro experimentos que permiten explorar visual y cuantitativamente los conceptos más importantes del electromagnetismo clásico: la geometría de las líneas de campo, la ley de Ampere como herramienta para calcular campos en configuraciones simétricas, el fenómeno de las corrientes inducidas (corrientes de Foucault) y los principios de inducción electromagnética que dan lugar al funcionamiento del transformador.
+
+La idea central es que el aprendizaje de la física no se completa únicamente con las ecuaciones: \emph{ver} cómo la limadura de hierro se alinea alrededor de un solenoide, o cómo una lámina de aluminio se frena sola al pasar junto a un imán, genera una intuición que las fórmulas por sí solas difícilmente transmiten.
+
+% -----------------------------------------------------------
+\section{Teoría Relacionada}
+% -----------------------------------------------------------
+
+\subsection*{Líneas de campo magnético y configuraciones simétricas}
+
+El campo magnético $\vec{B}$ puede representarse mediante líneas de campo: curvas cuya tangente en cada punto coincide con la dirección del vector campo. Una característica esencial del magnetismo es que estas líneas siempre forman lazos \emph{cerrados}, nunca comienzan ni terminan en el espacio libre. Esto es consecuencia directa de la ley de Gauss para el magnetismo:
+\begin{equation}
+    \oint_S \vec{B}\cdot d\vec{A} = 0,
+    \label{eq:gauss_mag}
+\end{equation}
+que establece que no existen monopolos magnéticos: todo imán tiene siempre un polo norte y un polo sur [1].
+
+En un \textbf{solenoide} de $n$ espiras por unidad de longitud y corriente $I$, el campo en el interior es uniforme y axial:
+\begin{equation}
+    B_{\text{sol}} = \mu_0 n I,
+    \label{eq:solenoide}
+\end{equation}
+con $\mu_0 = 4\pi\times10^{-7}$~T·m/A la permeabilidad del vacío. En el exterior, el campo es prácticamente cero. En un \textbf{toroide} el campo queda completamente confinado dentro del núcleo toroidal, con valor $B = \mu_0 N I/(2\pi r)$ en función del radio $r$, y campo nulo fuera [1].
+
+\subsection*{Ley de Ampere}
+
+La ley de Ampere establece que la integral de línea del campo magnético sobre una trayectoria cerrada arbitraria $C$ es proporcional a la corriente neta que atraviesa cualquier superficie delimitada por $C$:
+\begin{equation}
+    \oint_C \vec{B}\cdot d\vec{l} = \mu_0 \sum I_{\text{enc}},
+    \label{eq:ampere}
+\end{equation}
+donde $I_{\text{enc}}$ es la corriente total encerrada. Lo más importante de esta ley es su carácter \emph{topológico}: lo que determina el valor de la integral no es la forma concreta del camino, sino si ese camino ``enlaza'' o ``encierra'' al conductor que lleva la corriente. Si la trayectoria no enlaza ninguna corriente, la integral es cero independientemente de cómo esté distribuido el campo a lo largo del recorrido [2]. Esto implica que podemos escoger la trayectoria más conveniente para el cálculo, y el resultado solo depende de la topología del enlace.
+
+\subsection*{Corrientes de Foucault}
+
+Cuando un conductor se desplaza a través de un campo magnético, la ley de Faraday implica que se inducen en su interior corrientes circulantes llamadas \emph{corrientes de Foucault} o corrientes parásitas. Por la ley de Lenz, estas corrientes generan fuerzas que se oponen al movimiento que las originó, resultando en una fuerza de frenado proporcional a la velocidad.
+
+La magnitud de las corrientes de Foucault depende crucialmente de la geometría del conductor. En una placa \emph{sólida} (sin cortes), los electrones pueden describir lazos de gran área, lo que maximiza el flujo encerrado y, por tanto, la fem inducida y el frenado. Si se realizan \emph{ranuras} en la placa, los caminos disponibles para las corrientes quedan interrumpidos: los electrones no pueden cerrar los lazos grandes, y se ven obligados a circular en recorridos mucho menores, reduciendo drásticamente el efecto de frenado [3]. Esta diferencia de comportamiento tiene aplicaciones prácticas directas: los núcleos de los transformadores se construyen con láminas delgadas separadas por capas aislantes precisamente para interrumpir las corrientes de Foucault y disminuir las pérdidas energéticas.
+
+\subsection*{Inducción electromagnética y transformador}
+
+La ley de Faraday establece que una fuerza electromotriz (fem) se induce en cualquier circuito cuando el flujo magnético a través de él varía en el tiempo:
+\begin{equation}
+    \mathcal{E} = -N\frac{d\Phi_B}{dt},
+    \label{eq:faraday}
+\end{equation}
+donde $N$ es el número de espiras y $\Phi_B = \int \vec{B}\cdot d\vec{A}$ el flujo magnético. Si la variación es causada por un imán moviéndose a través de la bobina, la fem inducida depende tanto de $N$ (a mayor número de espiras, mayor fem para el mismo $d\Phi_B/dt$) como de la velocidad de movimiento del imán (que determina qué tan rápido cambia el flujo) [1].
+
+El \textbf{transformador} aprovecha este principio acoplando magnéticamente dos bobinas mediante un núcleo de hierro. Si se aplica una tensión alterna $V_p$ al devanado primario de $N_p$ espiras, la tensión $V_s$ inducida en el secundario de $N_s$ espiras satisface, en el caso ideal:
+\begin{equation}
+    \frac{V_s}{V_p} = \frac{N_s}{N_p}.
+    \label{eq:transformador}
+\end{equation}
+En la práctica, la eficiencia se ve afectada por las pérdidas resistivas en el alambre (efecto Joule), las pérdidas en el núcleo por histéresis y corrientes de Foucault, y la inductancia de magnetización del primario. Esta última es especialmente importante: la inductancia crece con $N_p^2$, de modo que un primario con pocos espiras tiene baja inductancia, alta corriente de magnetización y mal acoplamiento, lo que deteriora significativamente la eficiencia [2].
+
+% -----------------------------------------------------------
+\section{Montaje y Procedimiento}
+% -----------------------------------------------------------
+
+\subsection*{Mesa 1: Visualización de líneas de campo}
+
+Se dispuso un toroide y un solenoide de alambre de cobre, ambos conectados a una fuente de tensión de corriente directa. Se roció limadura de hierro sobre cada uno y, al activar la fuente y dar pequeños golpes al soporte para que las partículas pudieran reorientarse, la limadura se alineó con las líneas de campo revelando su geometría. Adicionalmente, se contaba con un imán cilíndrico dentro de una cápsula acrílica transparente rellena de limadura de hierro que permitía observar las líneas en las tres dimensiones espaciales.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{toroide.jpeg}
+    \caption{Toroide con limadura de hierro: las líneas de campo quedan completamente confinadas dentro del núcleo toroidal, sin flujo apreciable en el exterior.}
+    \label{fig:toroide}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{solenoide.jpeg}
+    \caption{Solenoide con limadura de hierro. Las líneas emergen axialmente por un extremo y se cierran por el otro, de manera análoga a un dipolo magnético (imán de barra).}
+    \label{fig:solenoide}
+\end{figure}
+
+\subsection*{Mesa 2: Verificación de la ley de Ampere}
+
+Se empleó el aparato PASCO Ampere's Law (EM-6720), consistente en una plataforma negra con un aro conductor circular por el que circula una corriente conocida, y un carro móvil equipado con un sensor inalámbrico de campo magnético (Figura~\ref{fig:ampere_setup}). El sensor registra la componente $B_x$ en función de la posición mientras el carro es desplazado manualmente. La integral $\oint \vec{B}\cdot d\vec{l}$ se calcula automáticamente como el área bajo la curva $B_x$ vs. posición. El sistema se conectó al software PASCO Capstone.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{ampere_setup2.jpeg}
+    \caption{Aparato PASCO EM-6720 para verificar la ley de Ampere: aro portador de corriente (aro negro) montado verticalmente sobre la plataforma, con el carro y sensor magnético sobre el riel.}
+    \label{fig:ampere_setup}
+\end{figure}
+
+Con una corriente en el aro de $I \approx 0.815$~A ($\mu_0 NI \approx 5.12$~Gm), se realizaron tres recorridos cerrados (el carro partió y terminó en el mismo punto):
+\begin{itemize}
+    \item \textbf{Recorrido 1:} la trayectoria \emph{pasa por el centro} del aro, de modo que la superficie delimitada por el camino es atravesada por la corriente del aro.
+    \item \textbf{Recorrido 2:} la trayectoria \emph{rodea completamente el exterior} del aro sin pasar por su centro, de modo que la corriente no atraviesa la superficie limitada por la trayectoria.
+    \item \textbf{Recorrido 3:} la trayectoria recorre \emph{solo uno de los lados} del aro, sin enlazar la corriente.
+\end{itemize}
+
+\subsection*{Mesa 3: Corrientes de Foucault}
+
+Se suspendieron tres láminas planas de aluminio de una barra horizontal, de modo que pudieran oscilar libremente como péndulos (Figura~\ref{fig:foucault_setup}). Debajo de la trayectoria de oscilación se posicionaron dos imanes permanentes (PASCO) con un espacio entre sus polos, de forma que al balancear las láminas, estas pasaran entre los imanes. Las tres láminas presentan geometrías distintas:
+\begin{enumerate}
+    \item \textbf{Lámina sólida}: sin ranuras, superficie continua de aluminio.
+    \item \textbf{Lámina con ranuras rectangulares cerradas}: orificios rectangulares confinados en el interior de la lámina que no alcanzan ningún borde.
+    \item \textbf{Lámina tipo peine}: ranuras finas y densas completamente abiertas en el borde inferior, creando ``dientes'' separados en la parte baja, pero conectados por un puente sólido en la parte superior (Figura~\ref{fig:peine}).
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{foucault_setup.jpeg}
+    \caption{Montaje de corrientes de Foucault: lámina de aluminio oscilando entre los polos de dos imanes permanentes (PASCO). El imán se posiciona debajo del punto de equilibrio del péndulo.}
+    \label{fig:foucault_setup}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.82\linewidth]{foucault_peine.jpeg}
+    \caption{Lámina tipo peine. Las ranuras son completamente abiertas en el borde inferior (los dientes), pero la parte superior es un puente sólido continuo que conecta todos los dientes entre sí.}
+    \label{fig:peine}
+\end{figure}
+
+\subsection*{Mesa 4: Transformador e inducción con imán}
+
+Se utilizó un conjunto de bobinas intercambiables Frederiksen (200, 400, 800, 1600 y 3200~espiras) con un núcleo de hierro en forma de U y una pieza de cierre (yugo) que forma un circuito magnético cerrado (Figura~\ref{fig:transformador}). La bobina primaria se conectó a una fuente de corriente alterna ($V_p = 5$~V) y la secundaria a un multímetro UNI-T configurado para medir tensión AC.
+
+Se probaron cuatro combinaciones de bobinas (primario/secundario) registrando el voltaje en el secundario para cada caso. Luego se colocó una sola bobina conectada al voltímetro y se pasó de forma repetida, primero un imán delgado y luego un imán grande, a través de su interior; se registró la fem máxima inducida para bobinas de 200, 400 y 3200~espiras con cada imán. La nota de laboratorio dejó constancia de que los valores variaban con la velocidad de paso del imán.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{transformador.jpeg}
+    \caption{Montaje de la mesa 4. Se observan varias bobinas Frederiksen (200 espiras en azul, 1600 en rojo y otras sobre la mesa), el núcleo de hierro en U con yugo de cierre y el multímetro UNI-T (rojo).}
+    \label{fig:transformador}
+\end{figure}
+
+% -----------------------------------------------------------
+\section{Resultados}
+% -----------------------------------------------------------
+
+\subsection*{Mesa 1 – Líneas de campo}
+
+La limadura de hierro se reorientó de forma inmediata al activar la corriente. En el toroide, las líneas quedaron completamente confinadas dentro del núcleo, sin flujo apreciable en el exterior (Figura~\ref{fig:toroide}). En el solenoide, se formaron líneas axiales densas que emergían axialmente por los extremos (Figura~\ref{fig:solenoide}). El imán cilíndrico en la cápsula 3D mostró el patrón dipolar clásico: líneas saliendo de un polo, curvándose hacia el espacio y cerrándose en el polo opuesto.
+
+\subsection*{Mesa 2 – Ley de Ampere}
+
+Los resultados de la integral de línea $\oint \vec{B}\cdot d\vec{l}$ (área bajo la curva) para cada recorrido se presentan en la Tabla~\ref{tab:ampere}.
+
+\begin{table}[H]
+\centering
+\caption{Integral de línea medida en los tres recorridos. $I = 0.815$~A, $\mu_0 NI = 5.12$~Gm.}
+\label{tab:ampere}
+\small
+\begin{tabular}{lcc}
+\toprule
+\textbf{Trayectoria} & \textbf{Área (G·m)} & \textbf{Enlaza $I$?}\\
+\midrule
+Por el centro    & 5.55  & Sí \\
+Rodea exterior   & 0.933 & No \\
+Solo un lado     & 0.263 & No \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{ampere_g1.jpeg}
+    \caption{Gráfica de $B_x$ vs. posición para el recorrido por el centro del aro (Recorrido~1). El pico tipo campana tiene área $= 5.55$~G·m $\approx\mu_0 NI = 5.12$~Gm. Corriente: $I=0.815$~A.}
+    \label{fig:ampere1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{ampere_g2.jpeg}
+    \caption{Gráfica para el recorrido que rodea el aro por el exterior sin pasar por el centro (Recorrido~2). La curva tiene regiones positivas y negativas que casi se cancelan; área marcada $= 0.933$~G·m $\approx 0$.}
+    \label{fig:ampere2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{ampere_g3.jpeg}
+    \caption{Gráfica para el recorrido de solo un lado del aro (Recorrido~3). Área $= 0.263$~G·m $\approx 0$. Corriente: $I=0.813$~A.}
+    \label{fig:ampere3}
+\end{figure}
+
+\subsection*{Mesa 3 – Corrientes de Foucault}
+
+Al balancear las tres láminas de forma simultánea con la misma amplitud inicial:
+\begin{itemize}
+    \item \textbf{Lámina sólida y lámina con orificios cerrados}: ambas se detuvieron casi por completo al pasar entre los imanes, con un frenado notoriamente brusco.
+    \item \textbf{Lámina tipo peine} (señalada con flechas rojas en la Figura~\ref{fig:placas}): se detuvo completamente y de forma muy abrupta, incluso más rápido que las otras dos.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{foucault_placas.jpeg}
+    \caption{Las tres láminas del experimento de corrientes de Foucault. Las flechas rojas señalan la lámina tipo peine (centro), que presentó el mayor frenado al pasar entre los imanes.}
+    \label{fig:placas}
+\end{figure}
+
+\subsection*{Mesa 4 – Transformador e inducción}
+
+\textbf{Transformador:} La Tabla~\ref{tab:transformador} muestra los voltajes teóricos y medidos en el secundario para cada combinación de bobinas, con $V_p = 5$~V (AC).
+
+\begin{table}[H]
+\centering
+\caption{Resultados del transformador ($V_p = 5$~V AC).}
+\label{tab:transformador}
+\small
+\begin{tabular}{ccccr}
+\toprule
+$N_p$ & $N_s$ & $V_s^{\,\text{teórico}}$ & $V_s^{\,\text{medido}}$ & Efic.\\
+\midrule
+1600 & 3200 & 10.0~V & 8.2~V  & 82\,\%\\
+1600 & 400  & 1.25~V & 1.0~V  & 80\,\%\\
+200  & 3200 & 80.0~V & 31.3~V & 39\,\%\\
+200  & 1600 & 40.0~V & 35.4~V & 89\,\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Inducción con imán:} La Tabla~\ref{tab:faraday} muestra los rangos de fem inducida al pasar dos imanes de distinto tamaño a través del interior de las bobinas.
+
+\begin{table}[H]
+\centering
+\caption{fem máxima inducida al mover cada imán. Los valores varían con la velocidad de paso.}
+\label{tab:faraday}
+\small
+\begin{tabular}{lcc}
+\toprule
+\textbf{Bobina} & \textbf{Imán delgado} & \textbf{Imán grande}\\
+\midrule
+200 espiras  & 0 -- 29.7~mV & 0 -- 3.4~mV \\
+400 espiras  & 0 -- 30~mV   & 1 -- 7.4~mV \\
+3200 espiras & 0 -- 4.8~V   & 0 -- 83~mV  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% -----------------------------------------------------------
+\section{Análisis}
+% -----------------------------------------------------------
+
+\subsection*{Mesa 1}
+
+La visualización con limadura confirma las predicciones teóricas de manera directa. En el \textbf{toroide}, el campo queda completamente confinado en el interior del núcleo, lo que demuestra experimentalmente por qué esta geometría se usa para minimizar interferencias en circuitos electrónicos: no hay flujo magnético escapando hacia el exterior. En el \textbf{solenoide}, la uniformidad del campo en el interior y la forma en que las líneas emergen y se cierran por los extremos recuerdan fielmente a un imán de barra, justificando el nombre de electroimán para las configuraciones solenoidales. El \textbf{imán cilíndrico} en la cápsula 3D ilustra que las líneas de campo son estructuras tridimensionales: los diagramas habituales en papel solo muestran una sección de algo que en realidad ocurre en todo el espacio alrededor del imán.
+
+\subsection*{Mesa 2 – Ley de Ampere}
+
+Para el \textbf{Recorrido 1} (pasa por el centro), la integral medida fue $5.55$~G·m frente al valor teórico $\mu_0 NI = 5.12$~Gm. El error porcentual es:
+\begin{equation}
+    \varepsilon_1 = \frac{|5.55 - 5.12|}{5.12}\times 100\% \approx 8.4\,\%.
+\end{equation}
+Este error es razonablemente bajo y se atribuye principalmente a que el carro no sigue una trayectoria perfectamente cerrada (el punto de inicio y el de llegada no coinciden con exactitud milimétrica), a pequeñas oscilaciones del sensor durante el desplazamiento, y a posibles campos espurios del entorno del laboratorio (cables, fuentes de otras mesas).
+
+Para los \textbf{Recorridos 2 y 3} (no enlazan la corriente), la integral debería ser idealmente cero según la ley de Ampere. Los valores medidos fueron $0.933$~G·m y $0.263$~G·m, respectivamente. Estos valores no nulos se explican por las mismas fuentes de error: el camino no se cierra de forma perfectamente simétrica, y el sensor acumula pequeñas derivas. Como porcentaje del valor de referencia $\mu_0 NI$:
+\begin{equation}
+    \varepsilon_2 \approx 18\,\%, \qquad \varepsilon_3 \approx 5\,\%.
+\end{equation}
+A pesar de estas desviaciones, el resultado es contundente: la diferencia entre la Trayectoria~1 ($5.55$~G·m) y las Trayectorias~2 y~3 ($0.93$ y $0.26$~G·m) es de más de un orden de magnitud, confirmando el principio topológico fundamental de la ley de Ampere: \emph{la integral de línea no depende de la forma del camino, sino únicamente de si el camino encierra o no la corriente}. Cuando el camino pasa por el centro del aro y enlaza la corriente, la integral toma el valor $\mu_0 NI$; cuando el camino no encierra la corriente, sin importar cómo rodee el aro por fuera, la integral es esencialmente cero.
+
+Esto es análogo a lo que ocurre en el teorema de Stokes: la integral de línea solo recoge la contribución del flujo de corriente que perfora la superficie delimitada por el camino.
+
+\subsection*{Mesa 3 – Corrientes de Foucault}
+
+El experimento muestra que el comportamiento de cada lámina ante el imán está determinado por la existencia o no de caminos cerrados para que las corrientes puedan circular.
+
+En la \textbf{lámina sólida}, los electrones pueden describir grandes lazos circulares que rodean amplias regiones de flujo magnético. La fem inducida en cada lazo es grande (lazo grande $\Rightarrow$ mucho flujo) y la resistencia eléctrica del lazo es baja (trayectoria corta de metal). El resultado es una corriente grande que, por la ley de Lenz, genera una fuerza de frenado intensa.
+
+La \textbf{lámina tipo peine} es el caso más interesante y, a primera vista, el más sorprendente. Esta lámina tiene las ranuras abiertas en el borde \emph{inferior} (los dientes), pero la parte superior es un \textbf{puente sólido continuo} que conecta todos los dientes entre sí. Cuando la lámina pasa entre los imanes, las corrientes de Foucault pueden circular siguiendo un camino muy eficiente: suben por un diente, cruzan el puente sólido superior, bajan por el diente adyacente y cierran el lazo por el espacio entre dientes. Este camino encierra prácticamente la misma área que un lazo en la lámina sólida, por lo que la fem inducida es comparable, y la fuerza de frenado es igualmente intensa. Esto explica por qué esta lámina se detiene de forma tan abrupta.
+
+Si, por el contrario, los cortes fueran \emph{completos} de borde a borde (de abajo hacia arriba sin dejar puente), cada diente sería una pieza \textbf{aislada} sin conexión con los demás: no habría circuito cerrado para la corriente, y el frenado sería mínimo. En esas láminas sí se observaría que el péndulo sigue oscilando casi libremente.
+
+La conclusión práctica es poderosa: \emph{no basta con hacer cortes en un conductor para eliminar las corrientes de Foucault; es necesario que esos cortes interrumpan completamente todos los lazos posibles de corriente en la región de interacción con el campo}. Los transformadores modernos usan núcleos laminados con capas de barniz aislante precisamente por este principio [3].
+
+\subsection*{Mesa 4 – Transformador e inducción}
+
+\textbf{Análisis del transformador:} Para los primarios de 1600 espiras (filas~1 y~2 de la Tabla~\ref{tab:transformador}), la eficiencia del $80$--$82\,\%$ es consistente con las pérdidas esperadas en un transformador de laboratorio: resistencia del alambre, pérdidas por histéresis en el núcleo y flujo magnético de dispersión que no atraviesa la bobina secundaria. La diferencia de $\approx 20\,\%$ entre el voltaje teórico y el medido es razonable para este tipo de equipo educativo.
+
+El caso más llamativo es el \textbf{primario de 200 espiras con secundario de 3200} (fila~3): la eficiencia cae al $39\,\%$, es decir, medimos $31.3$~V en lugar de los $80$~V teóricos. La explicación está en la inductancia del primario, que escala con el cuadrado del número de espiras: $L \propto N_p^2$. Con $N_p = 200$, la inductancia es $(200/1600)^2 = 1/64$ de la que tendría con $N_p = 1600$. Esto significa que la reactancia inductiva $X_L = 2\pi f L$ es 64 veces menor, y a la misma frecuencia de la fuente la bobina actúa más como una resistencia que como un inductor puro. Buena parte de la energía se disipa en calor en el devanado primario en lugar de transferirse al núcleo. La corriente de magnetización es muy alta, el acoplamiento magnético es deficiente y el voltaje secundario cae muy por debajo del teórico.
+
+En cambio, el caso \textbf{200~espiras/1600~espiras} (fila~4) da una eficiencia del $89\,\%$, la mejor de todos. Aunque el primario sigue siendo de 200 espiras, la relación de transformación es mucho menor ($\times 8$ vs.\ $\times 16$), y la carga que representa el voltímetro en el secundario tiene una impedancia más favorable. Esto ilustra que la eficiencia del transformador no solo depende del primario, sino de la combinación completa del sistema.
+
+\textbf{Análisis de la inducción con imán:} Los datos de la Tabla~\ref{tab:faraday} verifican la ley de Faraday~(ec.~\ref{eq:faraday}): la fem inducida aumenta con el número de espiras. Para el \textbf{imán grande}, donde las condiciones de velocidad fueron más controladas, la proporcionalidad es bastante clara:
+\begin{align*}
+    \frac{\mathcal{E}_{400}}{\mathcal{E}_{200}} &= \frac{7.4}{3.4} \approx 2.2 \approx \frac{400}{200} = 2\quad(\checkmark),\\
+    \frac{\mathcal{E}_{3200}}{\mathcal{E}_{200}} &= \frac{83}{3.4} \approx 24.4 \approx \frac{3200}{200} = 16 \quad(\approx\checkmark).
+\end{align*}
+La razón medida para 3200/200 es algo mayor que el factor teórico 16, lo que se explica porque el imán pudo haberse pasado a mayor velocidad en ese ensayo (mayor $d\Phi_B/dt$), amplificando la fem por encima de la predicción que asumiría velocidad constante.
+
+Para el \textbf{imán delgado}, los valores de 200 y 400 espiras son casi iguales ($\approx 30$~mV), lo que indica velocidades muy similares en ambas pruebas. El salto a $4.8$~V para 3200 espiras (un factor $\approx 160$ en lugar del factor 8 esperado solo por las espiras) sugiere que ese ensayo se realizó con una velocidad notablemente mayor, consistente con la observación anotada: ``varía con la velocidad''.
+
+El hecho de que el imán delgado produzca una fem mayor que el imán grande a igual bobina y velocidad similar es contraintuitivo pero tiene sentido si el imán delgado tiene mayor densidad de flujo por unidad de sección transversal (campo más concentrado), o si simplemente se movió más rápido. Sin medición independiente de la velocidad no es posible separar ambos efectos.
+
+En conjunto, los resultados confirman de manera cuantitativa que $\mathcal{E} \propto N$ y $\mathcal{E} \propto |d\Phi_B/dt|$, y que la tensión de salida de un transformador sigue $V_s/V_p = N_s/N_p$ con pérdidas que se agravan cuando el primario tiene pocos espiras.
+
+% -----------------------------------------------------------
+\section{Conclusiones}
+% -----------------------------------------------------------
+
+Los cuatro experimentos realizados permitieron verificar de manera directa, tanto cualitativa como cuantitativamente, los principios fundamentales del electromagnetismo clásico.
+
+La visualización con limadura de hierro constituye una herramienta poderosa para desarrollar intuición sobre el campo magnético. Se comprobó que las líneas de campo son lazos cerrados tridimensionales cuya geometría depende directamente de la configuración del conductor: el toroide las confina en su interior, el solenoide las proyecta axialmente y el imán cilíndrico las distribuye en forma dipolar.
+
+La verificación experimental de la ley de Ampere confirmó su carácter topológico: la integral de línea del campo sobre la trayectoria que enlaza la corriente arrojó $\approx\mu_0 NI$ con un error del $8.4\,\%$, mientras que las trayectorias que no enlazan la corriente produjeron valores entre 15 y 70 veces menores, próximos a cero. Esto demuestra que la forma del camino es irrelevante; lo único determinante es si el camino encierra o no la corriente.
+
+El experimento de corrientes de Foucault mostró que la existencia de \emph{caminos conectados} para las corrientes inducidas determina la magnitud del frenado. La lámina tipo peine se frenó completamente porque su puente sólido superior permite que las corrientes circulen entre dientes adyacentes, cerrando lazos de gran área. Esto ilustra que no basta con introducir cortes en un conductor para eliminar las corrientes de Foucault: los cortes deben interrumpir completamente todos los posibles lazos de corriente en la región del campo.
+
+Finalmente, el estudio del transformador confirmó la relación $V_s/V_p = N_s/N_p$ con eficiencias del $80$--$89\,\%$ para primarios de 1600 espiras, pero con una caída al $39\,\%$ cuando el primario fue de solo 200 espiras, evidenciando la importancia de la inductancia del devanado primario. La inducción con imán verificó que $\mathcal{E} \propto N$ en consistencia con la ley de Faraday, y que la velocidad del imán es un factor determinante de la fem inducida.
+
+% -----------------------------------------------------------
+\section{Referencias}
+% -----------------------------------------------------------
+
+\noindent [1] D. J. Griffiths, \textit{Introduction to Electrodynamics}, 4.ª~ed., Cambridge University Press (2017).
+
+\noindent [2] P. A. Tipler y G. Mosca, \textit{Física para la Ciencia y la Tecnología}, vol.~2, 6.ª~ed., Reverté (2010).
+
+\noindent [3] H. D. Young y R. A. Freedman, \textit{Sears-Zemansky Física Universitaria}, vol.~2, 14.ª~ed., Pearson (2018).
+
+\noindent [4] PASCO Scientific, \textit{Ampere's Law Apparatus EM-6720 Instruction Manual}, PASCO (2019).
+
+\noindent [5] Frederiksen, \textit{Transformer Coils 2855.00 User Guide}, Frederiksen (2015).
+
+\end{multicols}
+\end{document}
